@@ -25,10 +25,16 @@
           <span>Bahan Baku</span></a>
       </li>
   
-      <li class="nav-item {{(request()->is('categories')) ? 'active' :''}}">
-        <a class="nav-link" href="{{url('/categories')}}">
+      <li class="nav-item">
+        <a class="nav-link" href="/produk">
           <i class="fas fa-fw fa-wrench"></i>
-          <span>Barang Jadi</span></a>
+          <span>Produk</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/penjualan">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>Penjualan</span></a>
       </li>
 
       <li class="nav-item">

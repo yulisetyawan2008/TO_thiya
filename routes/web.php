@@ -40,4 +40,8 @@ Route::get('/barang', 'BarangController@index');
 Route::get('/barang/create', 'BarangController@create');
 Route::post('/barang', 'BarangController@store');
 
+Route::get('/produk', 'ProdukController@index');
+Route::get('/produk/create', 'ProdukController@create');
+Route::post('/produk', 'ProdukController@store');
+
 

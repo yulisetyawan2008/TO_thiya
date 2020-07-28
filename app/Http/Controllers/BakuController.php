@@ -29,7 +29,7 @@ class BakuController extends Controller
     public function store(Request $request){
         $new_baku = new Baku;
 
-        $new_baku->nm_barang = $request->nm_barang;
+        $new_baku->barang_id = $request->barang_id;
         $new_baku->jml_barang = $request->jml_barang;
         $new_baku->satuan_id = $request->satuan_id;
         $new_baku->hrg_barang = $request->hrg_barang;
