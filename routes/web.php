@@ -36,4 +36,8 @@ Route::get('/toko', 'TokoController@index');
 Route::get('/toko/create', 'TokoController@create');
 Route::post('/toko', 'TokoController@store');
 
+Route::get('/barang', 'BarangController@index');
+Route::get('/barang/create', 'BarangController@create');
+Route::post('/barang', 'BarangController@store');
+
 

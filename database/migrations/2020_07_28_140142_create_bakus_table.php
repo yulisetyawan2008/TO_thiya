@@ -15,7 +15,9 @@ class CreateBakusTable extends Migration
     {
         Schema::create('bakus', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nm_barang');
+            $table->unsignedBigInteger('barang_id');
+            $table->foreign('barang_id')->references('id')->on('barangs')->onDelete('cascade');
+            
             $table->integer('jml_barang');
 
             $table->unsignedBigInteger('satuan_id');

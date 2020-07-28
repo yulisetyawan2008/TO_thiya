@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Satuan;
 use App\Toko;
 use App\Baku;
+use App\Barang;
 
 class BakuController extends Controller
 {
@@ -20,8 +21,9 @@ class BakuController extends Controller
     public function create(){
         $satuans = Satuan::all();
         $tokos = Toko::all();
+        $barangs = Barang::all();
         // dd($satuans);
-        return view('baku.form', compact('satuans', 'tokos'));
+        return view('baku.form', compact('satuans', 'tokos', 'barangs'));
     }
 
     public function store(Request $request){

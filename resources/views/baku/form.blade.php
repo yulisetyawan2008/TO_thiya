@@ -10,8 +10,12 @@
                 @csrf
                 <div class="card-body perhitungan">
                     <div class="form-group">
-                        <label for="nm_barang">Nama Barang</label>
-                        <input type="text" class="form-control" id="nm_barang" name = "nm_barang" placeholder="Nama Barang">
+                        <label for="barang_id">Nama Barang</label>
+                        <select name="barang_id" id="barang_id" class="form-control">
+                        @foreach($barangs as $key => $barang)
+                            <option value="{{$barang->id}}"> {{ $barang->nm_barang}}</option>
+                        @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="jml_barang">Jumlah Barang</label>

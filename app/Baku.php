@@ -17,4 +17,8 @@ class Baku extends Model
     public function toko(){
         return $this->belongsTo('App\Toko');
     }
+
+    public function barang(){
+        return $this->belongsTo('App\Barang');
+    }
 }

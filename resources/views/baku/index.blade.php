@@ -24,7 +24,7 @@
                 @foreach($bakus as $baku)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$baku->nm_barang}}</td>
+                    <td>{{$baku->barang->nm_barang}}</td>
                     <td>{{$baku->jml_barang}}</td>
                     <td>{{$baku->satuan->satuan}}</td>
                     <td>{{$baku->hrg_barang}}</td>
