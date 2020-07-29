@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="jumbotron bg-warning">
-        <div class="card">
-            <div class="card-title">
-                <h2>Form Input Bahan Baku</h2>
+        <div class="card card-primary">
+            <div class="card-header">
+                <h2 class="card-title">Form Input Bahan Baku</h2>
             </div>
             <form action="/baku" method="POST">
                 @csrf
