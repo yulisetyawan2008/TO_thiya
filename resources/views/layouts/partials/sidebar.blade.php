@@ -38,6 +38,18 @@
       </li>
 
       <li class="nav-item">
+        <a class="nav-link" href="/pelanggan">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>Pelanggan</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/kurir">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>Kurir</span></a>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link" href="/barang">
           <i class="fas fa-fw fa-wrench"></i>
           <span>Barang</span></a>

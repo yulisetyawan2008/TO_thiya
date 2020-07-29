@@ -44,4 +44,17 @@ Route::get('/produk', 'ProdukController@index');
 Route::get('/produk/create', 'ProdukController@create');
 Route::post('/produk', 'ProdukController@store');
 
+Route::get('/kurir', 'KurirController@index');
+Route::get('/kurir/create', 'KurirController@create');
+Route::post('/kurir', 'KurirController@store');
+
+Route::get('/pelanggan', 'PelangganController@index');
+Route::get('/pelanggan/create', 'PelangganController@create');
+Route::post('/pelanggan', 'PelangganController@store');
+
+Route::get('/penjualan', 'PenjualanController@index');
+Route::get('/penjualan/create', 'PenjualanController@create');
+Route::post('/penjualan', 'PenjualanController@store');
+
+
 
