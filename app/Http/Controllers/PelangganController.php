@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pelanggan;
+use DB;
 
 class PelangganController extends Controller
 {
     public function index(){
-        $pelanggans = Pelanggan::all();
+        $pelanggans = DB::table('pelanggans')->paginate(5);
         return view('pelanggan.index', compact('pelanggans'));
     }
 
@@ -29,5 +30,36 @@ class PelangganController extends Controller
         $new_pelanggan->save();
 
         return redirect('/pelanggan');
+    }
+
+    public function edit($id){
+        $pelanggan = Pelanggan::find($id);
+        return view('pelanggan.edit', compact('pelanggan'));
+    }
+
+    public function update($id, Request $request){
+        $new_item = Pelanggan::find($id);
+
+        $new_item->nm_pelanggan = $request->nm_pelanggan;
+        $new_item->noHp_pelanggan = $request->noHp_pelanggan;
+        $new_item->almt_pelanggan = $request->almt_pelanggan;
+        $new_item->created_at = $request->created_at;
+        $new_item->updated_at = $request->updated_at;
+
+        $new_item->save();
+
+        return redirect('/pelanggan');
+    }
+
+    public function destroy($id){
+        $pelanggan = Pelanggan::find($id);
+        $pelanggan->delete();
+        return redirect('/pelanggan');
+    }
+
+    public function search(Request $request){
+        $search = $request->get('search');
+        $pelanggans = Pelanggan::where('nm_pelanggan', 'like', '%'.$search.'%')->paginate(5);
+        return view('pelanggan.index', compact('pelanggans'));
     }
 }

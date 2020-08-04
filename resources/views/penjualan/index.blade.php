@@ -35,8 +35,8 @@
                                 <td>{{$penjualan->pelanggan->nm_pelanggan}}</td>
                                 <td>{{$penjualan->kurir->nm_kurir}}</td>
                                 <td>
-                                    <a href="" class="btn btn-sm btn-warning">Edit</a>
-                                    <form action="" method="POST" style="display: inline">
+                                    <a href="/penjualan/{{$penjualan->id}}/edit" class="btn btn-sm btn-warning">Edit</a>
+                                    <form action="/penjualan/{{$penjualan->id}}" method="POST" style="display: inline">
                                         @csrf 
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
@@ -46,6 +46,7 @@
                             @endforeach
                         </tbody>
                     </table>
+                    
                 </div>
                 
             </div>

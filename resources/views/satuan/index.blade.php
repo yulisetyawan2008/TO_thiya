@@ -6,7 +6,30 @@
             <h2>Daftar Satuan Barang</h2>
         </div>
         <div class="card-body">
-            <a href="/satuan/create" class="btn btn-primary">Tambah Satuan</a>
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="/satuan/create" class="btn btn-primary">Tambah Satuan</a>
+                </div>
+                <div class="col-md-2">
+                    <a href="/satuan/pdf" class="btn btn-primary">Cetak Pdf</a>
+                </div>
+                <div class="col-md-2">
+                    <a href="/satuan/excel" class="btn btn-primary">Cetak Excel</a>
+                </div>
+                <div class="col-md-5">
+                    <form action="/satuan/search" method="get">
+                        <div class="input-group">
+                            <input type="search" name="search" class="form-control">
+                            <span class="input-group-prepend">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            Total satuan : {{$satuans->total()}}<br>
+            Halaman : {{$satuans->currentPage()}} dari {{$satuans->lastPage()}} halaman
             <div class="ml-3 mt-3">
                 <table class="table table-bordered">
                     <thead>
@@ -22,8 +45,8 @@
                             <td>{{$loop->iteration}}</td>
                             <td>{{$satuan->satuan}}</td>
                             <td>
-                                <a href="" class="btn btn-sm btn-warning">Edit</a>
-                                <form action="" method="POST" style="display:inline">
+                                <a href="/satuan/{{$satuan->id}}/edit" class="btn btn-sm btn-warning">Edit</a>
+                                <form action="/satuan/{{$satuan->id}}" method="POST" style="display:inline">
                                     @csrf 
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
@@ -33,6 +56,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{$satuans->links()}}
             </div>
         </div>
     

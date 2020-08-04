@@ -6,7 +6,31 @@
             <h2>Daftar Nama Barang</h2>
         </div>
         <div class="card-body">
-            <a href="/barang/create" class="btn btn-primary">Tambah Barang</a>
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="/barang/create" class="btn btn-sm btn-primary">Tambah Barang</a>
+                </div>
+                <div class="col-md-2">
+                    <a href="/barang/pdf" class="btn btn-primary">Cetak Pdf</a>
+                </div>
+                <div class="col-md-2">
+                    <a href="/barang/excel" class="btn btn-primary">Cetak Excel</a>
+                </div>
+                <div class="col-md-5">
+                    <form action="/barang/search" method="get">
+                        <div class="input-group">
+                            <input type="search" name="search" class="form-control">
+                            <span class="input-group-prepend">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr>
+            Total satuan : {{$barangs->total()}}<br>
+            Halaman : {{$barangs->currentPage()}} dari {{$barangs->lastPage()}} halaman
+            
             <div class="mt-3 ml-3">
                 <table class="table table-bordered">
                     <thead>
@@ -26,8 +50,8 @@
                             <td>{{$barang->merk}}</td>
                             <td>{{$barang->spsf_barang}}</td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-warning">Edit</a>
-                                <form action="" method="POST" style="display: inline">
+                                <a href="/barang/{{$barang->id}}/edit" class="btn btn-sm btn-warning">Edit</a>
+                                <form action="/barang/{{$barang->id}}" method="POST" style="display: inline">
                                     @csrf 
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
@@ -37,6 +61,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{$barangs->links()}}
             </div>
         </div>
     </div>

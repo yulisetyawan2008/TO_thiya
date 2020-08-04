@@ -31,8 +31,8 @@
                     <td>{{$baku->hrg_total}}</td>
                     <td>{{$baku->toko->nm_toko}}</td>
                     <td>
-                        <a href="#" class="btn btn-sm btn-warning">Edit</a>
-                        <form action="#" method="POST" style="display: inline">
+                        <a href="/baku/{{$baku->id}}/edit" class="btn btn-sm btn-warning">Edit</a>
+                        <form action="/baku/{{$baku->id}}" method="POST" style="display: inline">
                         @csrf 
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>

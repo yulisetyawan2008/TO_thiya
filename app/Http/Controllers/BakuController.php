@@ -42,4 +42,36 @@ class BakuController extends Controller
 
         return redirect('/baku')->with('create', 'Pembelian bahan baku telah ditambahkan');
     }
+
+    public function edit($id){
+        $baku = Baku::find($id);
+        $barangs = Barang::all();
+        $satuans = Satuan::all();
+        $tokos = Toko::all();
+        return view('baku.edit', compact('baku', 'barangs', 'satuans', 'tokos'));
+    }
+
+    public function update($id, Request $request){
+        $new_baku = Baku::find($id);
+
+        $new_baku->barang_id = $request->barang_id;
+        $new_baku->jml_barang = $request->jml_barang;
+        $new_baku->satuan_id = $request->satuan_id;
+        $new_baku->hrg_barang = $request->hrg_barang;
+        $new_baku->hrg_total = $request->hrg_total;
+        $new_baku->toko_id = $request->toko_id;
+        $new_baku->created_at = $request->created_at;
+        $new_baku->updated_at = $request->updated_at;
+
+        $new_baku->save();
+
+        return redirect('/baku');
+    }
+
+    public function destroy($id){
+        $baku = Baku::find($id);
+        $baku->delete();
+        return redirect('/baku');
+    }
+        
 }

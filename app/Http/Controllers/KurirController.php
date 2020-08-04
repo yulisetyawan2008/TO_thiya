@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Kurir;
+use DB;
 
 class KurirController extends Controller
 {
     public function index(){
-        $kurirs = Kurir::all();
+        $kurirs = DB::table('kurirs')->paginate(5);
         return view('kurir.index', compact('kurirs'));
     }
 
@@ -28,5 +29,35 @@ class KurirController extends Controller
 
         return redirect('/kurir');
 
+    }
+
+    public function edit($id){
+        $kurir = Kurir::find($id);
+        return view('kurir.edit', compact('kurir'));
+    }
+
+    public function update($id, Request $request){
+        $new_item = Kurir::find($id);
+
+        $new_item->nm_kurir = $request->nm_kurir;
+        $new_item->noHp_kurir = $request->noHp_kurir;
+        $new_item->created_at = $request->created_at;
+        $new_item->updated_at = $request->updated_at;
+
+        $new_item->save();
+
+        return redirect('/kurir');
+    }
+
+    public function destroy($id){
+        $kurir = Kurir::find($id);
+        $kurir->delete();
+        return redirect('/kurir');
+    }
+
+    public function search(Request $request){
+        $search = $request->get('search');
+        $kurirs = Kurir::where('nm_kurir', 'like', '%'.$search.'%')->paginate(5);
+        return view('kurir.index', compact('kurirs'));
     }
 }
