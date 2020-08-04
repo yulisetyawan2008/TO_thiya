@@ -28,6 +28,7 @@ class PenjualanController extends Controller
     public function store(Request $request){
         $new_item = new Penjualan;
 
+        $new_item->tanggal = date('Y-m-d',strtotime($request->tanggal));
         $new_item->produk_id = $request->produk_id;
         $new_item->jml_produk = $request->jml_produk;
         $new_item->satuan_id = $request->satuan_id;
@@ -56,6 +57,7 @@ class PenjualanController extends Controller
     public function update($id, Request $request){
         $new_item = Penjualan::find($id);
 
+        $new_item->tanggal = date('Y-m-d',strtotime($request->tanggal));
         $new_item->produk_id = $request->produk_id;
         $new_item->jml_produk = $request->jml_produk;
         $new_item->satuan_id = $request->satuan_id;

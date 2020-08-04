@@ -29,6 +29,7 @@ class BakuController extends Controller
     public function store(Request $request){
         $new_baku = new Baku;
 
+        $new_baku->tanggal = date('Y-m-d',strtotime($request->tanggal));
         $new_baku->barang_id = $request->barang_id;
         $new_baku->jml_barang = $request->jml_barang;
         $new_baku->satuan_id = $request->satuan_id;
@@ -54,6 +55,7 @@ class BakuController extends Controller
     public function update($id, Request $request){
         $new_baku = Baku::find($id);
 
+        $new_baku->tanggal = date('Y-m-d',strtotime($request->tanggal));
         $new_baku->barang_id = $request->barang_id;
         $new_baku->jml_barang = $request->jml_barang;
         $new_baku->satuan_id = $request->satuan_id;

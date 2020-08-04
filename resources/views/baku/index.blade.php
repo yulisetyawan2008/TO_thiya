@@ -11,6 +11,7 @@
             <thead>
                 <tr>
                     <th>No</th>
+                    <th>Tanggal</th>
                     <th>Nama Barang</th>
                     <th>Jumlah</th>
                     <th>Satuan</th>
@@ -24,11 +25,12 @@
                 @foreach($bakus as $baku)
                 <tr>
                     <td>{{$loop->iteration}}</td>
+                    <td>{{$baku->tanggal}}</td>
                     <td>{{$baku->barang->nm_barang}}</td>
                     <td>{{$baku->jml_barang}}</td>
                     <td>{{$baku->satuan->satuan}}</td>
-                    <td>{{$baku->hrg_barang}}</td>
-                    <td>{{$baku->hrg_total}}</td>
+                    <td>{{number_format($baku->hrg_barang,0)}}</td>
+                    <td>{{number_format($baku->hrg_total,0)}}</td>
                     <td>{{$baku->toko->nm_toko}}</td>
                     <td>
                         <a href="/baku/{{$baku->id}}/edit" class="btn btn-sm btn-warning">Edit</a>

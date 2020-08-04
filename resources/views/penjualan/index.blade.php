@@ -13,6 +13,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Tanggal</th>
                                 <th>Nama Produk</th>
                                 <th>Jumlah Produk</th>
                                 <th>Satuan</th>
@@ -27,11 +28,12 @@
                             @foreach($penjualans as $penjualan)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
+                                <td>{{$penjualan->tanggal}}</td>
                                 <td>{{$penjualan->produk->produk}}</td>
                                 <td>{{$penjualan->jml_produk}}</td>
                                 <td>{{$penjualan->satuan->satuan}}</td>
-                                <td>{{$penjualan->hrg_produk}}</td>
-                                <td>{{$penjualan->ttl_hrg}}</td>
+                                <td>{{number_format($penjualan->hrg_produk,0)}}</td>
+                                <td>{{number_format($penjualan->ttl_hrg,0)}}</td>
                                 <td>{{$penjualan->pelanggan->nm_pelanggan}}</td>
                                 <td>{{$penjualan->kurir->nm_kurir}}</td>
                                 <td>

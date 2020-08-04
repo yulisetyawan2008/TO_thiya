@@ -10,6 +10,10 @@
                 @csrf
                 <div class="card-body perhitungan">
                     <div class="form-group">
+                        <label for="tanggal">Tanggal</label>
+                        <input name="tanggal" type="text" id="tanggal" class="form-control datepicker" placeholder="YYYY/MM/DD">
+                    </div>
+                    <div class="form-group">
                         <label for="barang_id">Nama Barang</label>
                         <select name="barang_id" id="barang_id" class="form-control">
                         @foreach($barangs as $key => $barang)
@@ -66,8 +70,15 @@
             var hrg_total = jml_barang * hrg_barang;
             $("#hrg_total").attr("value", hrg_total)
         });
-    
-    
     </script>
 
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $(".datepicker").datepicker();
+            });
+        </script>
 @endpush
