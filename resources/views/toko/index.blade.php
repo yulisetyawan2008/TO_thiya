@@ -49,6 +49,7 @@
                             <td>{{$toko->almt_toko}}</td>
                             <td>
                                 <a href="/toko/{{$toko->id}}/edit" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="/toko/{{$toko->id}}" class="btn btn-sm btn-success">Show</a>
                                 <form action="/toko/{{$toko->id}}" method="POST" style="display: inline">
                                 @csrf 
                                 @method('DELETE')

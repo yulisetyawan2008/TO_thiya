@@ -46,6 +46,7 @@
                             <td>{{$satuan->satuan}}</td>
                             <td>
                                 <a href="/satuan/{{$satuan->id}}/edit" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="/satuan/{{$satuan->id}}" class="btn btn-sm btn-success">Show</a>
                                 <form action="/satuan/{{$satuan->id}}" method="POST" style="display:inline">
                                     @csrf 
                                     @method('DELETE')

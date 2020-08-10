@@ -52,6 +52,7 @@
                                 <td>{{$pelanggan->almt_pelanggan}}</td>
                                 <td>
                                     <a href="/pelanggan/{{$pelanggan->id}}/edit" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="/pelanggan/{{$pelanggan->id}}" class="btn btn-sm btn-success">Show</a>
                                     <form action="/pelanggan/{{$pelanggan->id}}" method="POST" style="display: inline">
                                         @csrf 
                                         @method('DELETE')

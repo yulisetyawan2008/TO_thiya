@@ -27,7 +27,7 @@
                         </form>
                     </div>
                 </div>
-             
+
             <div class="ml-3 mt-3">
                 <table class="table table-bordered">
                     <thead>
@@ -50,6 +50,7 @@
                             <td>{{$produk->spsf_produk}}</td>
                             <td>
                                 <a href="/produk/{{$produk->id}}/edit" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="/produk/{{$produk->id}}" class="btn btn-sm btn-success">Show</a>
                                 <form action="/produk/{{$produk->id}}" method="POST" style="display: inline">
                                     @csrf 
                                     @method('DELETE')

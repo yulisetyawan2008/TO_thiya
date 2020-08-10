@@ -30,6 +30,7 @@ Route::post('baku/', 'BakuController@store');
 Route::get('/baku/{id}/edit', 'BakuController@edit');
 Route::put('/baku/{id}', 'BakuController@update');
 Route::delete('/baku/{id}', 'BakuController@destroy');
+Route::get('/baku/{id}', 'BakuController@show');
 
 Route::get('/satuan', 'SatuanController@index');
 Route::get('/satuan/create', 'SatuanController@create');
@@ -38,6 +39,7 @@ Route::get('/satuan/{id}/edit', 'SatuanController@edit');
 Route::put('/satuan/{id}', 'SatuanController@update');
 Route::delete('/satuan/{id}', 'SatuanController@destroy');
 Route::get('/satuan/search', 'SatuanController@search');
+Route::get('/satuan/{id}', 'SatuanController@show');
 
 Route::get('/toko', 'TokoController@index');
 Route::get('/toko/create', 'TokoController@create');
@@ -46,6 +48,7 @@ Route::get('/toko/{id}/edit', 'TokoController@edit');
 Route::put('/toko/{id}', 'TokoController@update');
 Route::delete('/toko/{id}', 'TokoController@destroy');
 Route::get('/toko/search', 'TokoController@search');
+Route::get('/toko/{id}', 'TokoController@show');
 
 Route::get('/barang', 'BarangController@index');
 Route::get('/barang/create', 'BarangController@create');
@@ -54,6 +57,7 @@ Route::get('/barang/{id}/edit', 'BarangController@edit');
 Route::put('/barang/{id}', 'BarangController@update');
 Route::delete('/barang/{id}', 'BarangController@destroy');
 Route::get('/barang/search', 'BarangController@search');
+Route::get('/barang/{id}', 'BarangController@show');
 
 Route::get('/produk', 'ProdukController@index');
 Route::get('/produk/create', 'ProdukController@create');
@@ -62,6 +66,7 @@ Route::get('/produk/{id}/edit', 'ProdukController@edit');
 Route::put('/produk/{id}', 'ProdukController@update');
 Route::delete('/produk/{id}', 'ProdukController@destroy');
 Route::get('/produk/search', 'ProdukController@search');
+Route::get('/produk/{id}', 'ProdukController@show');
 
 Route::get('/kurir', 'KurirController@index');
 Route::get('/kurir/create', 'KurirController@create');
@@ -70,6 +75,7 @@ Route::get('/kurir/{id}/edit', 'KurirController@edit');
 Route::put('/kurir/{id}', 'KurirController@update');
 Route::delete('/kurir/{id}', 'KurirController@destroy');
 Route::get('/kurir/search', 'KurirController@search');
+Route::get('/kurir/{id}', 'KurirController@show');
 
 Route::get('/pelanggan', 'PelangganController@index');
 Route::get('/pelanggan/create', 'PelangganController@create');
@@ -78,6 +84,7 @@ Route::get('/pelanggan/{id}/edit', 'PelangganController@edit');
 Route::put('/pelanggan/{id}', 'PelangganController@update');
 Route::delete('/pelanggan/{id}', 'PelangganController@destroy');
 Route::get('/pelanggan/search', 'PelangganController@search');
+Route::get('/pelanggan/{id}', 'PelangganController@show');
 
 
 Route::get('/penjualan', 'PenjualanController@index');

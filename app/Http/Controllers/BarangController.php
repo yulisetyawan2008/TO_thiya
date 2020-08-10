@@ -51,6 +51,11 @@ class BarangController extends Controller
         return redirect('/barang');
     }
 
+    public function show($barang_id){
+        $barang = Barang::find($barang_id);
+        return view('barang.show', compact('barang'));
+    }
+
     public function destroy($id){
         $barang = Barang::find($id);
         $barang->delete();

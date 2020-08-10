@@ -9,4 +9,6 @@ class Barang extends Model
     protected $fillable = [
         'nm_barang', 'merk_barang', 'spsf_barang'
     ];
+
+    
 }

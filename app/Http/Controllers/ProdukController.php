@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Satuan;
 use App\Produk;
 
+
 class ProdukController extends Controller
 {
     public function index(){
@@ -52,6 +53,11 @@ class ProdukController extends Controller
         $new_produk->save();
 
         return redirect('/produk');
+    }
+
+    public function show($id){
+        $produk = Produk::find($id);
+        return view('produk.show', compact('produk'));
     }
 
     public function destroy($id){

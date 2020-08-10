@@ -51,6 +51,7 @@
                             <td>{{$barang->spsf_barang}}</td>
                             <td>
                                 <a href="/barang/{{$barang->id}}/edit" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="/barang/{{$barang->id}}" class="btn btn-sm btn-success">Show</a>
                                 <form action="/barang/{{$barang->id}}" method="POST" style="display: inline">
                                     @csrf 
                                     @method('DELETE')

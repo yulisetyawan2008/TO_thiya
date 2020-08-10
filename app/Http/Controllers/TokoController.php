@@ -49,6 +49,11 @@ class TokoController extends Controller
         return redirect('/toko');
     }
 
+    public function show($id){
+        $toko = Toko::find($id);
+        return view('toko.show', compact('toko'));
+    }
+
     public function destroy($id){
         $toko = Toko::find($id);
         $toko->delete();

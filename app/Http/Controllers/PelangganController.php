@@ -51,6 +51,11 @@ class PelangganController extends Controller
         return redirect('/pelanggan');
     }
 
+    public function show($id){
+        $pelanggan = Pelanggan::find($id);
+        return view('pelanggan.show', compact('pelanggan'));
+    }
+
     public function destroy($id){
         $pelanggan = Pelanggan::find($id);
         $pelanggan->delete();

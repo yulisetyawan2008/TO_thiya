@@ -49,6 +49,11 @@ class KurirController extends Controller
         return redirect('/kurir');
     }
 
+    public function show($id){
+        $kurir = Kurir::find($id);
+        return view('kurir.show', compact('kurir'));
+    }
+
     public function destroy($id){
         $kurir = Kurir::find($id);
         $kurir->delete();

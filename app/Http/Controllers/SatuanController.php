@@ -48,6 +48,11 @@ class SatuanController extends Controller
         return redirect('/satuan');
     }
 
+    public function show($id){
+        $satuan = Satuan::find($id);
+        return view('satuan.show', compact('satuan'));
+    }
+
     public function destroy($id){
         $satuan = Satuan::find($id);
         $satuan->delete();

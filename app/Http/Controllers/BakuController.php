@@ -70,6 +70,12 @@ class BakuController extends Controller
         return redirect('/baku');
     }
 
+    public function show($barang_id){
+        $bakus = Baku::find($barang_id);
+        $barang = Barang::find('id', $barang_id);
+        return view('baku.show', compact('bakus', 'barang'));
+    }
+
     public function destroy($id){
         $baku = Baku::find($id);
         $baku->delete();

@@ -34,6 +34,7 @@
                     <td>{{$baku->toko->nm_toko}}</td>
                     <td>
                         <a href="/baku/{{$baku->id}}/edit" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="/baku/{{$baku->barang_id}}" class="btn btn-sm btn-success">Show</a>
                         <form action="/baku/{{$baku->id}}" method="POST" style="display: inline">
                         @csrf 
                         @method('DELETE')

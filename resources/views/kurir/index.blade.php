@@ -50,6 +50,7 @@
                                 <td>{{$kurir->noHp_kurir}}</td>
                                 <td>
                                     <a href="/kurir/{{$kurir->id}}/edit" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="/kurir/{{$kurir->id}}" class="btn btn-sm btn-success">Show</a>
                                     <form action="/kurir/{{$kurir->id}}" method="POST" style="display: inline">
                                         @csrf 
                                         @method('DELETE')
