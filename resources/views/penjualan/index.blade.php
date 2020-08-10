@@ -38,6 +38,7 @@
                                 <td>{{$penjualan->kurir->nm_kurir}}</td>
                                 <td>
                                     <a href="/penjualan/{{$penjualan->id}}/edit" class="btn btn-sm btn-warning">Edit</a>
+                                    <a href="/penjualan/{{$penjualan->produk_id}}" class="btn btn-sm btn-success">Show</a>
                                     <form action="/penjualan/{{$penjualan->id}}" method="POST" style="display: inline">
                                         @csrf 
                                         @method('DELETE')

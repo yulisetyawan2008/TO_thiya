@@ -93,6 +93,7 @@ Route::post('/penjualan', 'PenjualanController@store');
 Route::get('/penjualan/{id}/edit', 'PenjualanController@edit');
 Route::put('/penjualan/{id}', 'PenjualanController@update');
 Route::delete('/penjualan/{id}', 'PenjualanController@destroy');
+Route::get('/penjualan/{id}', 'PenjualanController@show');
 
 Route::get('/laporan', 'LaporanController@index');
 Route::get('/laporan/cari', 'LaporanController@cari');

@@ -13,25 +13,25 @@
                         <tr>
                             <th>No</th>
                             <th>Tanggal</th>
-                            <th>Nama Barang</th>
-                            <th>Jumlah Barang</th>
+                            <th>Nama Produk</th>
+                            <th>Jumlah Produk</th>
                             <th>Satuan</th>
                             <th>Harga Satuan</th>
                             <th>Harga Total</th>
-                            <th>Nama Toko</th>
+                            <th>Nama Pembeli</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($bakus as $baku)
+                    @foreach($penjualans as $penjualan)
                         <tr>
                             <td>{{$loop->iteration}}</td>
-                            <td>{{$baku->tanggal}}</td>
-                            <td>{{$baku->nm_barang}}</td>
-                            <td>{{$baku->jml_barang}}</td>
-                            <td>{{$baku->satuan}}</td>
-                            <td>{{number_format($baku->hrg_barang,0)}}</td>
-                            <td>{{number_format($baku->hrg_total,0)}}</td>
-                            <td>{{$baku->nm_toko}}</td>
+                            <td>{{date('d M Y', strtotime($penjualan->tanggal))}}</td>
+                            <td>{{$penjualan->produk}}</td>
+                            <td>{{$penjualan->jml_produk}}</td>
+                            <td>{{$penjualan->satuan}}</td>
+                            <td>{{number_format($penjualan->hrg_produk,0)}}</td>
+                            <td>{{number_format($penjualan->ttl_hrg,0)}}</td>
+                            <td>{{$penjualan->nm_pelanggan}}</td>
                         </tr>
                     @endforeach
                         <tr>
@@ -40,6 +40,7 @@
                             <td></td>
                             <td></td>
                             <td>{{number_format($total,0)}}</td>
+                            <td></td>
                         </tr>
                     </tbody>
                 </table>

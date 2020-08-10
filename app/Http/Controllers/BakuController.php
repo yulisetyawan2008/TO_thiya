@@ -7,6 +7,7 @@ use App\Satuan;
 use App\Toko;
 use App\Baku;
 use App\Barang;
+use DB;
 
 class BakuController extends Controller
 {
@@ -71,9 +72,28 @@ class BakuController extends Controller
     }
 
     public function show($barang_id){
-        $bakus = Baku::find($barang_id);
-        $barang = Barang::find('id', $barang_id);
-        return view('baku.show', compact('bakus', 'barang'));
+        $bakus = DB::table('bakus')
+                        ->join('barangs', 'bakus.barang_id', '=', 'barangs.id')
+                        ->join('satuans', 'bakus.satuan_id', '=', 'satuans.id')
+                        ->join('tokos', 'bakus.toko_id', '=', 'tokos.id')
+                        ->where('barang_id', '=', $barang_id)
+                        ->get();
+        $total = DB::table('bakus')
+                        ->join('barangs', 'bakus.barang_id', '=', 'barangs.id')
+                        ->join('satuans', 'bakus.satuan_id', '=', 'satuans.id')
+                        ->join('tokos', 'bakus.toko_id', '=', 'tokos.id')
+                        ->where('barang_id', '=', $barang_id)
+                        ->sum('hrg_total');
+        $jumlah = DB::table('bakus')
+                        ->join('barangs', 'bakus.barang_id', '=', 'barangs.id')
+                        ->join('satuans', 'bakus.satuan_id', '=', 'satuans.id')
+                        ->join('tokos', 'bakus.toko_id', '=', 'tokos.id')
+                        ->where('barang_id', '=', $barang_id)
+                        ->sum('jml_barang');
+        // dd($bakus);
+        $barang = DB::table('barangs')->where('id', '=', $barang_id)->get();
+        // dd($barang);
+        return view('baku.show', compact('bakus', 'barang', 'total', 'jumlah'));
     }
 
     public function destroy($id){

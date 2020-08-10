@@ -8,6 +8,7 @@ use App\Satuan;
 use App\Pelanggan;
 use App\Kurir;
 use App\Produk;
+use DB;
 
 class PenjualanController extends Controller
 {
@@ -71,6 +72,29 @@ class PenjualanController extends Controller
         $new_item->save();
 
         return redirect('/penjualan');
+    }
+
+    public function show($produk_id){
+        $penjualans = DB::table('penjualans')
+                            ->join('produks', 'penjualans.produk_id', '=', 'produks.id')
+                            ->join('satuans', 'penjualans.satuan_id', '=', 'satuans.id')
+                            ->join('pelanggans', 'penjualans.pelanggan_id', '=', 'pelanggans.id')
+                            ->where('produk_id', '=', $produk_id)
+                            ->get();
+        $total = DB::table('penjualans')
+                            ->join('produks', 'penjualans.produk_id', '=', 'produks.id')
+                            ->join('satuans', 'penjualans.satuan_id', '=', 'satuans.id')
+                            ->join('pelanggans', 'penjualans.pelanggan_id', '=', 'pelanggans.id')
+                            ->where('produk_id', '=', $produk_id)
+                            ->sum('ttl_hrg');
+        $jumlah = DB::table('penjualans')
+                            ->join('produks', 'penjualans.produk_id', '=', 'produks.id')
+                            ->join('satuans', 'penjualans.satuan_id', '=', 'satuans.id')
+                            ->join('pelanggans', 'penjualans.pelanggan_id', '=', 'pelanggans.id')
+                            ->where('produk_id', '=', $produk_id)
+                            ->sum('jml_produk');
+
+        return view('penjualan.show', compact('penjualans', 'total', 'jumlah'));
     }
 
     public function destroy($id){
