@@ -53,7 +53,22 @@ class PelangganController extends Controller
 
     public function show($id){
         $pelanggan = Pelanggan::find($id);
-        return view('pelanggan.show', compact('pelanggan'));
+        $penjualans = DB::table('penjualans')
+                           ->join('produks', 'penjualans.produk_id', '=', 'produks.id')
+                           ->join('satuans', 'penjualans.satuan_id', '=', 'satuans.id')
+                           ->where('pelanggan_id', '=', $id)
+                           ->get();
+        $total = DB::table('penjualans')
+                           ->join('produks', 'penjualans.produk_id', '=', 'produks.id')
+                           ->join('satuans', 'penjualans.satuan_id', '=', 'satuans.id')
+                           ->where('pelanggan_id', '=', $id)
+                           ->sum('ttl_hrg');
+        $jumlah = DB::table('penjualans')
+                           ->join('produks', 'penjualans.produk_id', '=', 'produks.id')
+                           ->join('satuans', 'penjualans.satuan_id', '=', 'satuans.id')
+                           ->where('pelanggan_id', '=', $id)
+                           ->sum('jml_produk');
+        return view('pelanggan.show', compact('pelanggan', 'penjualans', 'total', 'jumlah'));
     }
 
     public function destroy($id){

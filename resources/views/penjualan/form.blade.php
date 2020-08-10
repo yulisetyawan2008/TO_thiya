@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="jumbotron bg-primary">
-        <div class="card">
+        <div class="card card-primary">
             <div class="card-header">
-                <h2>Tambah Penjualan</h2>
+                <h2 class="card-title">Tambah Penjualan</h2>
             </div>
             <div class="card-body penjualan">
                 <div class="ml-3 mt-3">
