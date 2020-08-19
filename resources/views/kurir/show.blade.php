@@ -12,6 +12,28 @@
                 <p>Nomor HP : {{$kurir->noHp_kurir}}</p>
                 
             </div>
+            <div>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Barang</th>
+                            <th>Nama Pelanggan</th>
+                            <th>Alamat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($penjualans as $penjualan)
+                        <tr>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$penjualan->produk}}</td>
+                            <td>{{$penjualan->nm_pelanggan}}</td>
+                            <td>{{$penjualan->almt_pelanggan}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="card-footer">
             <a href="/kurir" class="btn btn-sm btn-primary">Kembali</a>

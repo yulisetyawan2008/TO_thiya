@@ -10,8 +10,16 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
+
+      <li class="nav-item">
+        <a class="nav-link" href="/beranda">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Beranda</span></a>
+      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider">
+
 
       <!-- Heading -->
       <div class="sidebar-heading">

@@ -51,7 +51,14 @@ class KurirController extends Controller
 
     public function show($id){
         $kurir = Kurir::find($id);
-        return view('kurir.show', compact('kurir'));
+        $penjualans = DB::table('penjualans')
+                            ->join('produks', 'penjualans.produk_id', '=', 'produks.id')
+                            ->join('satuans', 'penjualans.satuan_id', '=', 'satuans.id')
+                            ->join('pelanggans', 'penjualans.pelanggan_id', '=', 'pelanggans.id')
+                            ->join('kurirs', 'penjualans.kurir_id', '=', 'kurirs.id')
+                            ->where('kurir_id', '=', $id)
+                            ->get();
+        return view('kurir.show', compact('kurir', 'penjualans'));
     }
 
     public function destroy($id){
